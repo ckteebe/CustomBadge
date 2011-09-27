@@ -1,0 +1,282 @@
+// !$*UTF8*$!
+{
+	1D3623240D0F684500981E51 /* CustomBadgeAppDelegate.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1526, 549}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 507}";
+		};
+	};
+	1D3623250D0F684500981E51 /* CustomBadgeAppDelegate.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1965, 1392}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{3, 1224}";
+		};
+	};
+	1D6058900D05DD3D006BFB54 /* CustomBadge */ = {
+		activeExec = 0;
+		executables = (
+			2B3EB1DC1219594800E3C351 /* CustomBadge */,
+		);
+	};
+	28D7ACF60DDB3853001CB0EB /* CustomBadgeViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1526, 549}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 254}";
+		};
+	};
+	28D7ACF70DDB3853001CB0EB /* CustomBadgeViewController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1526, 2160}}";
+			sepNavSelRange = "{592, 0}";
+			sepNavVisRange = "{160, 1111}";
+		};
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 2B3EB1DC1219594800E3C351 /* CustomBadge */;
+		activeSDKPreference = iphonesimulator4.2;
+		activeTarget = 1D6058900D05DD3D006BFB54 /* CustomBadge */;
+		addToTargets = (
+			1D6058900D05DD3D006BFB54 /* CustomBadge */,
+		);
+		breakpoints = (
+		);
+		codeSenseManager = 2B3EB1EC1219595D00E3C351 /* Code sense */;
+		executables = (
+			2B3EB1DC1219594800E3C351 /* CustomBadge */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					1348,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXSymbolsDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXSymbolsDataSource_SymbolNameID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					16,
+					200,
+					50,
+					636,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXSymbolsDataSource_SymbolTypeIconID,
+					PBXSymbolsDataSource_SymbolNameID,
+					PBXSymbolsDataSource_SymbolTypeID,
+					PBXSymbolsDataSource_ReferenceNameID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.XCSCMDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					20,
+					672,
+					20,
+					48.16259765625,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_SCM_ColumnID,
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					656,
+					60,
+					20,
+					48,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 325858868;
+			PBXWorkspaceStateSaveDate = 325858868;
+		};
+		perUserProjectItems = {
+			2B179661136B16F900BDDB7B /* PBXTextBookmark */ = 2B179661136B16F900BDDB7B /* PBXTextBookmark */;
+			2B179662136B16F900BDDB7B /* PBXTextBookmark */ = 2B179662136B16F900BDDB7B /* PBXTextBookmark */;
+			2B179663136B16F900BDDB7B /* PBXTextBookmark */ = 2B179663136B16F900BDDB7B /* PBXTextBookmark */;
+			2BC44991136C3788009B147B /* PBXTextBookmark */ = 2BC44991136C3788009B147B /* PBXTextBookmark */;
+			2BC44997136C37B1009B147B /* PBXTextBookmark */ = 2BC44997136C37B1009B147B /* PBXTextBookmark */;
+			2BC44998136C37B1009B147B /* PBXTextBookmark */ = 2BC44998136C37B1009B147B /* PBXTextBookmark */;
+			2BC44AF4136C6C04009B147B /* PBXTextBookmark */ = 2BC44AF4136C6C04009B147B /* PBXTextBookmark */;
+		};
+		sourceControlManager = 2B3EB1EB1219595D00E3C351 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	2B179661136B16F900BDDB7B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF60DDB3853001CB0EB /* CustomBadgeViewController.h */;
+		name = "CustomBadgeViewController.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 254;
+		vrLoc = 0;
+	};
+	2B179662136B16F900BDDB7B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623250D0F684500981E51 /* CustomBadgeAppDelegate.m */;
+		name = "CustomBadgeAppDelegate.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1224;
+		vrLoc = 3;
+	};
+	2B179663136B16F900BDDB7B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* CustomBadgeAppDelegate.h */;
+		name = "CustomBadgeAppDelegate.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 507;
+		vrLoc = 0;
+	};
+	2B3EB1DC1219594800E3C351 /* CustomBadge */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 1;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = CustomBadge;
+		savedGlobals = {
+		};
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+		variableFormatDictionary = {
+		};
+	};
+	2B3EB1E81219595D00E3C351 /* CustomBadge.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1859, 4032}}";
+			sepNavSelRange = "{7825, 0}";
+			sepNavVisRange = "{7000, 665}";
+		};
+	};
+	2B3EB1E91219595D00E3C351 /* CustomBadge.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1526, 944}}";
+			sepNavSelRange = "{437, 69}";
+			sepNavVisRange = "{0, 1129}";
+		};
+	};
+	2B3EB1EB1219595D00E3C351 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	2B3EB1EC1219595D00E3C351 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	2BC44991136C3788009B147B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2B3EB1E91219595D00E3C351 /* CustomBadge.h */;
+		name = "CustomBadge.h: 12";
+		rLen = 69;
+		rLoc = 437;
+		rType = 0;
+		vrLen = 1129;
+		vrLoc = 0;
+	};
+	2BC44997136C37B1009B147B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2B3EB1E81219595D00E3C351 /* CustomBadge.m */;
+		name = "CustomBadge.m: 12";
+		rLen = 0;
+		rLoc = 506;
+		rType = 0;
+		vrLen = 1098;
+		vrLoc = 2621;
+	};
+	2BC44998136C37B1009B147B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* CustomBadgeViewController.m */;
+		name = "CustomBadgeViewController.m: 27";
+		rLen = 0;
+		rLoc = 957;
+		rType = 0;
+		vrLen = 1362;
+		vrLoc = 389;
+	};
+	2BC44AF4136C6C04009B147B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF70DDB3853001CB0EB /* CustomBadgeViewController.m */;
+		name = "CustomBadgeViewController.m: 23";
+		rLen = 0;
+		rLoc = 592;
+		rType = 0;
+		vrLen = 1111;
+		vrLoc = 160;
+	};
+}
