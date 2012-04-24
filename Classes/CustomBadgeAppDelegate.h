@@ -13,8 +13,8 @@
     CustomBadgeViewController *viewController;
 }
 
-@property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) IBOutlet CustomBadgeViewController *viewController;
+@property (nonatomic) IBOutlet UIWindow *window;
+@property (nonatomic) IBOutlet CustomBadgeViewController *viewController;
 
 @end
 

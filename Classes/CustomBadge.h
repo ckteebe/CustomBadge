@@ -36,10 +36,10 @@
 	CGFloat badgeScaleFactor;
 }
 
-@property(nonatomic,retain) NSString *badgeText;
-@property(nonatomic,retain) UIColor *badgeTextColor;
-@property(nonatomic,retain) UIColor *badgeInsetColor;
-@property(nonatomic,retain) UIColor *badgeFrameColor;
+@property(nonatomic) NSString *badgeText;
+@property(nonatomic) UIColor *badgeTextColor;
+@property(nonatomic) UIColor *badgeInsetColor;
+@property(nonatomic) UIColor *badgeFrameColor;
 
 @property(nonatomic,readwrite) BOOL badgeFrame;
 @property(nonatomic,readwrite) BOOL badgeShining;
