@@ -238,6 +238,16 @@
 	
 }
 
+// Allow clicks on the badge passthrough to the object below.  This is useful when attaching to a button
+//   see: http://stackoverflow.com/a/4010809
+-(BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
+    for (UIView *view in self.subviews) {
+        if ([view pointInside:[self convertPoint:point toView:view] withEvent:event])
+            return YES;
+    }
+    return NO;
+}
+
 - (void)dealloc {
 	
 	[badgeText release];
