@@ -20,16 +20,24 @@
  If you have any questions please feel free to contact me (open@spaulus.com).
  */
 
-
-#import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
+#ifdef __IPHONE_OS_VERSION_MAX_ALLOWED
+#import <UIKit/UIKit.h>
+
 @interface CustomBadge : UIView {
-	
-	NSString *badgeText;
+
 	UIColor *badgeTextColor;
 	UIColor *badgeInsetColor;
 	UIColor *badgeFrameColor;
+#elif defined(__MAC_OS_X_VERSION_MAX_ALLOWED)
+@interface CustomBadge : NSView {
+    
+	NSColor *badgeTextColor;
+	NSColor *badgeInsetColor;
+	NSColor *badgeFrameColor;
+#endif
+	NSString *badgeText;
 	BOOL badgeFrame;
 	BOOL badgeShining;
 	CGFloat badgeCornerRoundness;
@@ -37,9 +45,15 @@
 }
 
 @property(nonatomic,retain) NSString *badgeText;
+#ifdef __IPHONE_OS_VERSION_MAX_ALLOWED
 @property(nonatomic,retain) UIColor *badgeTextColor;
 @property(nonatomic,retain) UIColor *badgeInsetColor;
 @property(nonatomic,retain) UIColor *badgeFrameColor;
+#elif defined(__MAC_OS_X_VERSION_MAX_ALLOWED)
+@property(nonatomic,retain) NSColor *badgeTextColor;
+@property(nonatomic,retain) NSColor *badgeInsetColor;
+@property(nonatomic,retain) NSColor *badgeFrameColor;
+#endif
 
 @property(nonatomic,readwrite) BOOL badgeFrame;
 @property(nonatomic,readwrite) BOOL badgeShining;
@@ -48,7 +62,11 @@
 @property(nonatomic,readwrite) CGFloat badgeScaleFactor;
 
 + (CustomBadge*) customBadgeWithString:(NSString *)badgeString;
+#ifdef __IPHONE_OS_VERSION_MAX_ALLOWED
 + (CustomBadge*) customBadgeWithString:(NSString *)badgeString withStringColor:(UIColor*)stringColor withInsetColor:(UIColor*)insetColor withBadgeFrame:(BOOL)badgeFrameYesNo withBadgeFrameColor:(UIColor*)frameColor withScale:(CGFloat)scale withShining:(BOOL)shining;
+#elif defined(__MAC_OS_X_VERSION_MAX_ALLOWED)
++ (CustomBadge*) customBadgeWithString:(NSString *)badgeString withStringColor:(NSColor*)stringColor withInsetColor:(NSColor*)insetColor withBadgeFrame:(BOOL)badgeFrameYesNo withBadgeFrameColor:(NSColor*)frameColor withScale:(CGFloat)scale withShining:(BOOL)shining;
+#endif
 - (void) autoBadgeSizeWithString:(NSString *)badgeString;
 
 @end
