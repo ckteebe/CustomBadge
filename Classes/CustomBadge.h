@@ -37,12 +37,14 @@
 }
 
 @property(nonatomic,retain) NSString *badgeText;
+@property(nonatomic,retain) NSString *badgeTextFontName;
 @property(nonatomic,retain) UIColor *badgeTextColor;
 @property(nonatomic,retain) UIColor *badgeInsetColor;
 @property(nonatomic,retain) UIColor *badgeFrameColor;
 
 @property(nonatomic,readwrite) BOOL badgeFrame;
 @property(nonatomic,readwrite) BOOL badgeShining;
+@property(nonatomic,readwrite) BOOL badgeShadow;
 
 @property(nonatomic,readwrite) CGFloat badgeCornerRoundness;
 @property(nonatomic,readwrite) CGFloat badgeScaleFactor;
