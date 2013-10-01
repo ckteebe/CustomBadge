@@ -31,6 +31,7 @@
 @implementation CustomBadge
 
 @synthesize badgeText;
+@synthesize badgeTextFontName;
 @synthesize badgeTextColor;
 @synthesize badgeInsetColor;
 @synthesize badgeFrameColor;
@@ -38,6 +39,8 @@
 @synthesize badgeCornerRoundness;
 @synthesize badgeScaleFactor;
 @synthesize badgeShining;
+@synthesize badgeShadow;
+
 
 // I recommend to use the allocator customBadgeWithString
 - (id) initWithString:(NSString *)badgeString withScale:(CGFloat)scale withShining:(BOOL)shining
@@ -54,6 +57,7 @@
 		self.badgeCornerRoundness = 0.4;
 		self.badgeScaleFactor = scale;
 		self.badgeShining = shining;
+        self.badgeShadow = YES;
 		[self autoBadgeSizeWithString:badgeString];		
 	}
 	return self;
@@ -74,6 +78,7 @@
 		self.badgeCornerRoundness = 0.40;	
 		self.badgeScaleFactor = scale;
 		self.badgeShining = shining;
+        self.badgeShadow = YES;
 		[self autoBadgeSizeWithString:badgeString];
 	}
 	return self;
@@ -135,7 +140,8 @@
 	CGContextAddArc(context, maxX-radius, maxY-radius, radius, 0, M_PI/2, 0);
 	CGContextAddArc(context, minX+radius, maxY-radius, radius, M_PI/2, M_PI, 0);
 	CGContextAddArc(context, minX+radius, minY+radius, radius, M_PI, M_PI+M_PI/2, 0);
-	CGContextSetShadowWithColor(context, CGSizeMake(1.0,1.0), 3, [[UIColor blackColor] CGColor]);
+    if(self.badgeShadow)
+        CGContextSetShadowWithColor(context, CGSizeMake(1.0,1.0), 3, [[UIColor blackColor] CGColor]);
     CGContextFillPath(context);
 
 	CGContextRestoreGState(context);
@@ -231,7 +237,14 @@
 		if ([self.badgeText length]<2) {
 			sizeOfFont += sizeOfFont*0.20;
 		}
-		UIFont *textFont = [UIFont boldSystemFontOfSize:sizeOfFont];
+
+		UIFont *textFont = nil;
+        if (self.badgeTextFontName) {
+            textFont = [UIFont fontWithName:self.badgeTextFontName size:sizeOfFont];
+        }
+        else {
+           textFont = [UIFont boldSystemFontOfSize:sizeOfFont];
+        }
 		CGSize textSize = [self.badgeText sizeWithFont:textFont];
 		[self.badgeText drawAtPoint:CGPointMake((rect.size.width/2-textSize.width/2), (rect.size.height/2-textSize.height/2)) withFont:textFont];
 	}
