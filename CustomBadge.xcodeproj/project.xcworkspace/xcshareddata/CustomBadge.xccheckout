@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C28C914D-9D11-4F2D-A1B4-32A55EEE70F0</string>
+	<key>IDESourceControlProjectName</key>
+	<string>CustomBadge</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>AFABCF41-E0E2-471E-8C68-85FD8521FDBB</key>
+		<string>https://github.com/kalvish21/CustomBadge.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>CustomBadge.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>AFABCF41-E0E2-471E-8C68-85FD8521FDBB</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/kalvish21/CustomBadge.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>AFABCF41-E0E2-471E-8C68-85FD8521FDBB</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>AFABCF41-E0E2-471E-8C68-85FD8521FDBB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CustomBadge</string>
+		</dict>
+	</array>
+</dict>
+</plist>
