@@ -90,7 +90,7 @@
 {
 	CGSize retValue;
 	CGFloat rectWidth, rectHeight;
-	CGSize stringSize = [badgeString sizeWithFont:[UIFont boldSystemFontOfSize:12]];
+	CGSize stringSize = [badgeString sizeWithAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:12]}];
 	CGFloat flexSpace;
 	if ([badgeString length]>=2) {
 		flexSpace = [badgeString length];
@@ -245,8 +245,9 @@
         else {
            textFont = [UIFont boldSystemFontOfSize:sizeOfFont];
         }
-		CGSize textSize = [self.badgeText sizeWithFont:textFont];
-		[self.badgeText drawAtPoint:CGPointMake((rect.size.width/2-textSize.width/2), (rect.size.height/2-textSize.height/2)) withFont:textFont];
+		
+		CGSize textSize = [self.badgeText sizeWithAttributes:@{NSFontAttributeName:textFont}];
+		[self.badgeText drawAtPoint:CGPointMake((rect.size.width/2-textSize.width/2), (rect.size.height/2-textSize.height/2)) withAttributes:@{NSFontAttributeName:textFont}];
 	}
 	
 }
