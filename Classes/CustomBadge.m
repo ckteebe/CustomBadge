@@ -24,6 +24,7 @@
 #import "CustomBadge.h"
 
 @interface CustomBadge()
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 - (void) drawRoundedRectWithContext:(CGContextRef)context withRect:(CGRect)rect;
 - (void) drawFrameWithContext:(CGContextRef)context withRect:(CGRect)rect;
 @end
@@ -85,8 +86,15 @@
 {
 	CGSize retValue;
 	CGFloat rectWidth, rectHeight;
-	CGSize stringSize = [badgeString sizeWithFont:[UIFont boldSystemFontOfSize:12]];
-	CGFloat flexSpace;
+    
+    CGSize stringSize;
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+        stringSize = [badgeString sizeWithAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:12]}];
+    } else {
+        stringSize = [badgeString sizeWithFont:[UIFont boldSystemFontOfSize:12]];
+    }
+	
+    CGFloat flexSpace;
 	if ([badgeString length]>=2) {
 		flexSpace = [badgeString length];
 		rectWidth = 25 + (stringSize.width + flexSpace); rectHeight = 25;
@@ -232,8 +240,15 @@
 			sizeOfFont += sizeOfFont*0.20;
 		}
 		UIFont *textFont = [UIFont boldSystemFontOfSize:sizeOfFont];
-		CGSize textSize = [self.badgeText sizeWithFont:textFont];
-		[self.badgeText drawAtPoint:CGPointMake((rect.size.width/2-textSize.width/2), (rect.size.height/2-textSize.height/2)) withFont:textFont];
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
+            CGSize textSize = [self.badgeText sizeWithAttributes:@{NSFontAttributeName:textFont}];
+            [self.badgeText drawAtPoint:CGPointMake((rect.size.width/2-textSize.width/2), (rect.size.height/2-textSize.height/2))
+                         withAttributes:@{NSFontAttributeName:textFont, NSForegroundColorAttributeName:self.badgeTextColor}];
+        } else {
+            CGSize textSize = [self.badgeText sizeWithFont:textFont];
+            [self.badgeText drawAtPoint:CGPointMake((rect.size.width/2-textSize.width/2), (rect.size.height/2-textSize.height/2))
+                               withFont:textFont];
+        }
 	}
 	
 }
