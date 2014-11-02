@@ -103,14 +103,14 @@
 // Creates a Badge with a given Text 
 + (CustomBadge*) customBadgeWithString:(NSString *)badgeString
 {
-	return [[[self alloc] initWithString:badgeString withScale:1.0 withShining:YES] autorelease];
+	return [[self alloc] initWithString:badgeString withScale:1.0 withShining:YES];
 }
 
 
 // Creates a Badge with a given Text, Text Color, Inset Color, Frame (YES/NO) and Frame Color 
 + (CustomBadge*) customBadgeWithString:(NSString *)badgeString withStringColor:(UIColor*)stringColor withInsetColor:(UIColor*)insetColor withBadgeFrame:(BOOL)badgeFrameYesNo withBadgeFrameColor:(UIColor*)frameColor withScale:(CGFloat)scale withShining:(BOOL)shining
 {
-	return [[[self alloc] initWithString:badgeString withStringColor:stringColor withInsetColor:insetColor withBadgeFrame:badgeFrameYesNo withBadgeFrameColor:frameColor withScale:scale withShining:shining] autorelease];
+	return [[self alloc] initWithString:badgeString withStringColor:stringColor withInsetColor:insetColor withBadgeFrame:badgeFrameYesNo withBadgeFrameColor:frameColor withScale:scale withShining:shining];
 }
 
 
@@ -238,14 +238,6 @@
 	
 }
 
-- (void)dealloc {
-	
-	[badgeText release];
-	[badgeTextColor release];
-	[badgeInsetColor release];
-	[badgeFrameColor release];	
-    [super dealloc];
-}
 
 
 @end
