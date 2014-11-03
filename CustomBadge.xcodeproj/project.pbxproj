@@ -17,6 +17,7 @@
 		28D7ACF80DDB3853001CB0EB /* CustomBadgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* CustomBadgeViewController.m */; };
 		2B013E0C1A07A9AF00815F52 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B013E0B1A07A9AF00815F52 /* Default-568h@2x.png */; };
 		2B3EB1EA1219595D00E3C351 /* CustomBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B3EB1E81219595D00E3C351 /* CustomBadge.m */; };
+		2BFA4CA71A07D28900DFB245 /* BadgeStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BFA4CA61A07D28900DFB245 /* BadgeStyle.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,8 +33,10 @@
 		28D7ACF70DDB3853001CB0EB /* CustomBadgeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomBadgeViewController.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2B013E0B1A07A9AF00815F52 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		2B3EB1E81219595D00E3C351 /* CustomBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomBadge.m; sourceTree = "<group>"; };
-		2B3EB1E91219595D00E3C351 /* CustomBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomBadge.h; sourceTree = "<group>"; };
+		2B3EB1E81219595D00E3C351 /* CustomBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomBadge.m; path = Classes/CustomBadge.m; sourceTree = "<group>"; };
+		2B3EB1E91219595D00E3C351 /* CustomBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomBadge.h; path = Classes/CustomBadge.h; sourceTree = "<group>"; };
+		2BFA4CA51A07D28900DFB245 /* BadgeStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BadgeStyle.h; sourceTree = "<group>"; };
+		2BFA4CA61A07D28900DFB245 /* BadgeStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BadgeStyle.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* CustomBadge_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomBadge_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* CustomBadge-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "CustomBadge-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -55,8 +58,6 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				2B3EB1E81219595D00E3C351 /* CustomBadge.m */,
-				2B3EB1E91219595D00E3C351 /* CustomBadge.h */,
 				1D3623240D0F684500981E51 /* CustomBadgeAppDelegate.h */,
 				1D3623250D0F684500981E51 /* CustomBadgeAppDelegate.m */,
 				28D7ACF60DDB3853001CB0EB /* CustomBadgeViewController.h */,
@@ -76,6 +77,10 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				2BFA4CA51A07D28900DFB245 /* BadgeStyle.h */,
+				2BFA4CA61A07D28900DFB245 /* BadgeStyle.m */,
+				2B3EB1E91219595D00E3C351 /* CustomBadge.h */,
+				2B3EB1E81219595D00E3C351 /* CustomBadge.m */,
 				2B013E0B1A07A9AF00815F52 /* Default-568h@2x.png */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -184,6 +189,7 @@
 				1D3623260D0F684500981E51 /* CustomBadgeAppDelegate.m in Sources */,
 				28D7ACF80DDB3853001CB0EB /* CustomBadgeViewController.m in Sources */,
 				2B3EB1EA1219595D00E3C351 /* CustomBadge.m in Sources */,
+				2BFA4CA71A07D28900DFB245 /* BadgeStyle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,13 @@
 /*
+ 
+ ------------------------------------------------------------------------------------
  CustomBadge.m
+ ------------------------------------------------------------------------------------
+ CustomBadge is an UIView which draws a customizable badge on any other view.
+ The latest version has separation between style and rendering.
+ This class is the core of CustomBadge where the actual rendering happens.
+ It recommended to use the convenient allocators instead of the init methods.
+ ------------------------------------------------------------------------------------
  
  The MIT License (MIT)
  
@@ -28,59 +36,34 @@
 
 #import "CustomBadge.h"
 
+
 @interface CustomBadge()
+
+@property(nonatomic) UIFont *badgeFont;
+
 - (void) drawRoundedRectWithContext:(CGContextRef)context withRect:(CGRect)rect;
 - (void) drawFrameWithContext:(CGContextRef)context withRect:(CGRect)rect;
+
 @end
 
 @implementation CustomBadge
 
 @synthesize badgeText;
-@synthesize badgeTextColor;
-@synthesize badgeInsetColor;
-@synthesize badgeFrameColor;
-@synthesize badgeFrame;
 @synthesize badgeCornerRoundness;
 @synthesize badgeScaleFactor;
-@synthesize badgeShining;
+@synthesize badgeStyle;
 
-// I recommend to use the allocator customBadgeWithString
-- (id) initWithString:(NSString *)badgeString withScale:(CGFloat)scale withShining:(BOOL)shining
+// I recommend to use one of the allocators like customBadgeWithString
+- (id) initWithString:(NSString *)badgeString withScale:(CGFloat)scale withStyle:(BadgeStyle*)style
 {
 	self = [super initWithFrame:CGRectMake(0, 0, 25, 25)];
 	if(self!=nil) {
 		self.contentScaleFactor = [[UIScreen mainScreen] scale];
 		self.backgroundColor = [UIColor clearColor];
 		self.badgeText = badgeString;
-		self.badgeTextColor = [UIColor whiteColor];
-		self.badgeFrame = YES;
-		self.badgeFrameColor = [UIColor whiteColor];
-		self.badgeInsetColor = [UIColor redColor];
+        self.badgeStyle = style;
 		self.badgeCornerRoundness = 0.4;
 		self.badgeScaleFactor = scale;
-		self.badgeShining = shining;
-		self.badgeShadow = YES;
-        [self autoBadgeSizeWithString:badgeString];
-	}
-	return self;
-}
-
-// I recommend to use the allocator customBadgeWithString
-- (id) initWithString:(NSString *)badgeString withStringColor:(UIColor*)stringColor withInsetColor:(UIColor*)insetColor withBadgeFrame:(BOOL)badgeFrameYesNo withBadgeFrameColor:(UIColor*)frameColor withScale:(CGFloat)scale withShining:(BOOL)shining 
-{
-	self = [super initWithFrame:CGRectMake(0, 0, 25, 25)];
-	if(self!=nil) {
-		self.contentScaleFactor = [[UIScreen mainScreen] scale];
-		self.backgroundColor = [UIColor clearColor];
-		self.badgeText = badgeString;
-		self.badgeTextColor = stringColor;
-		self.badgeFrame = badgeFrameYesNo;
-		self.badgeFrameColor = frameColor;
-		self.badgeInsetColor = insetColor;
-		self.badgeCornerRoundness = 0.40;	
-		self.badgeScaleFactor = scale;
-		self.badgeShining = shining;
-		self.badgeShadow = YES;
         [self autoBadgeSizeWithString:badgeString];
 	}
 	return self;
@@ -92,7 +75,7 @@
 {
 	CGSize retValue;
 	CGFloat rectWidth, rectHeight;
-    NSDictionary *fontAttr = @{ NSFontAttributeName : [UIFont boldSystemFontOfSize:12] };
+    NSDictionary *fontAttr = @{ NSFontAttributeName : [self fontForBadgeWithSize:12] };
 	CGSize stringSize = [badgeString sizeWithAttributes:fontAttr];
 	CGFloat flexSpace;
 	if ([badgeString length]>=2) {
@@ -108,21 +91,32 @@
 }
 
 
-// Creates a Badge with a given Text 
+// Creates a Badge with a given Text in default BadgeStyle and normal scale
 + (CustomBadge*) customBadgeWithString:(NSString *)badgeString
 {
-	return [[self alloc] initWithString:badgeString withScale:1.0 withShining:YES];
+    return [[self alloc] initWithString:badgeString withScale:1.0 withStyle:[BadgeStyle defaultStyle]];
 }
 
+// Creates a Badge with a given Text in default BadgeStyle and given scale
++ (CustomBadge*) customBadgeWithString:(NSString *)badgeString withScale:(CGFloat)scale {
+    
+    return [[self alloc] initWithString:badgeString withScale:scale withStyle:[BadgeStyle defaultStyle]];
+    
+}
 
-// Creates a Badge with a given Text, Text Color, Inset Color, Frame (YES/NO) and Frame Color 
-+ (CustomBadge*) customBadgeWithString:(NSString *)badgeString withStringColor:(UIColor*)stringColor withInsetColor:(UIColor*)insetColor withBadgeFrame:(BOOL)badgeFrameYesNo withBadgeFrameColor:(UIColor*)frameColor withScale:(CGFloat)scale withShining:(BOOL)shining
+// Creates a Badge with a given Text in given BadgeStyle and normal scale
++ (CustomBadge*) customBadgeWithString:(NSString *)badgeString withStyle:(BadgeStyle*)style
 {
-	return [[self alloc] initWithString:badgeString withStringColor:stringColor withInsetColor:insetColor withBadgeFrame:badgeFrameYesNo withBadgeFrameColor:frameColor withScale:scale withShining:shining];
+    return [[self alloc] initWithString:badgeString withScale:1.0 withStyle:style];
 }
 
 
+// Creates a Badge with a given Text in given BadgeStyle and a given scale
++ (CustomBadge*) customBadgeWithString:(NSString *)badgeString withScale:(CGFloat)scale withStyle:(BadgeStyle*)style {
 
+    return [[self alloc] initWithString:badgeString withScale:scale withStyle:style];
+    
+}
  
 
 // Draws the Badge with Quartz
@@ -138,12 +132,12 @@
 	CGFloat minY = CGRectGetMinY(rect) + puffer;
 		
     CGContextBeginPath(context);
-	CGContextSetFillColorWithColor(context, [self.badgeInsetColor CGColor]);
+	CGContextSetFillColorWithColor(context, [self.badgeStyle.badgeInsetColor CGColor]);
 	CGContextAddArc(context, maxX-radius, minY+radius, radius, M_PI+(M_PI/2), 0, 0);
 	CGContextAddArc(context, maxX-radius, maxY-radius, radius, 0, M_PI/2, 0);
 	CGContextAddArc(context, minX+radius, maxY-radius, radius, M_PI/2, M_PI, 0);
 	CGContextAddArc(context, minX+radius, minY+radius, radius, M_PI, M_PI+M_PI/2, 0);
-    if (self.badgeShadow) {
+    if (self.badgeStyle.badgeShadow) {
         CGContextSetShadowWithColor(context, CGSizeMake(1.0,1.0), 3, [[UIColor blackColor] CGColor]);
     }
 	CGContextFillPath(context);
@@ -212,7 +206,7 @@
 		lineSize += self.badgeScaleFactor*0.25;
 	}
 	CGContextSetLineWidth(context, lineSize);
-	CGContextSetStrokeColorWithColor(context, [self.badgeFrameColor CGColor]);
+	CGContextSetStrokeColorWithColor(context, [self.badgeStyle.badgeFrameColor CGColor]);
 	CGContextAddArc(context, maxX-radius, minY+radius, radius, M_PI+(M_PI/2), 0, 0);
 	CGContextAddArc(context, maxX-radius, maxY-radius, radius, 0, M_PI/2, 0);
 	CGContextAddArc(context, minX+radius, maxY-radius, radius, M_PI/2, M_PI, 0);
@@ -222,32 +216,43 @@
 }
 
 
+- (UIFont*) fontForBadgeWithSize:(CGFloat)size {
+    switch (self.badgeStyle.badgeFontType) {
+        case BadgeStyleFontTypeHelveticaNeueMedium:
+            return [UIFont fontWithName:@"HelveticaNeue-Medium" size:size];
+            break;
+        default:
+            return [UIFont fontWithName:@"HelveticaNeue-Light" size:size];
+            break;
+    }
+}
+
 - (void)drawRect:(CGRect)rect {
 	
 	CGContextRef context = UIGraphicsGetCurrentContext();
 	[self drawRoundedRectWithContext:context withRect:rect];
 	
-	if(self.badgeShining) {
+	if(self.badgeStyle.badgeShining) {
 		[self drawShineWithContext:context withRect:rect];
 	}
 	
-	if (self.badgeFrame)  {
+	if (self.badgeStyle.badgeFrame)  {
 		[self drawFrameWithContext:context withRect:rect];
 	}
 	
 	if ([self.badgeText length]>0) {
-		[badgeTextColor set];
 		CGFloat sizeOfFont = 13.5*badgeScaleFactor;
 		if ([self.badgeText length]<2) {
-			sizeOfFont += sizeOfFont*0.20;
+            sizeOfFont += sizeOfFont * 0.20f;
 		}
-		UIFont *textFont = [UIFont boldSystemFontOfSize:sizeOfFont];
-        NSDictionary *fontAttr = @{ NSFontAttributeName : textFont, NSForegroundColorAttributeName : self.badgeTextColor };
+        UIFont *textFont =  [self fontForBadgeWithSize:sizeOfFont];
+        NSDictionary *fontAttr = @{ NSFontAttributeName : textFont, NSForegroundColorAttributeName : self.badgeStyle.badgeTextColor };
 		CGSize textSize = [self.badgeText sizeWithAttributes:fontAttr];
-		[self.badgeText drawAtPoint:CGPointMake((rect.size.width/2-textSize.width/2), (rect.size.height/2-textSize.height/2)) withAttributes:fontAttr];
+        CGPoint textPoint = CGPointMake((rect.size.width/2-textSize.width/2), (rect.size.height/2-textSize.height/2) - 1 );
+		[self.badgeText drawAtPoint:textPoint withAttributes:fontAttr];
 	}
-	
 }
+
 
 
 

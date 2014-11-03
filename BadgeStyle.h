@@ -1,12 +1,11 @@
 /*
  
  ------------------------------------------------------------------------------------
- CustomBadge.h
+ BadgeStyle.h
  ------------------------------------------------------------------------------------
- CustomBadge is an UIView which draws a customizable badge on any other view.
- The latest version has separation between style and rendering.
- This class is the core of CustomBadge where the actual rendering happens.
- It recommended to use the convenient allocators instead of the init methods.
+ CustomBadge Version 3 comes with better separation between style and rendering.
+ This class provides all informtion (Colors, Options, Font, ...) for the drawing
+ The drawing itself happens in the "CustomBadge.m" class
  ------------------------------------------------------------------------------------
  
  The MIT License (MIT)
@@ -30,30 +29,43 @@
  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  SOFTWARE.
+ 
+ */
 
-*/
 
-#import <UIKit/UIKit.h>
-#import <QuartzCore/QuartzCore.h>
-#import "BadgeStyle.h"
 
-@interface CustomBadge : UIView {
-	NSString *badgeText;
-	CGFloat badgeCornerRoundness;
-	CGFloat badgeScaleFactor;
-    BadgeStyle *badgeStyle;
+
+#import <Foundation/Foundation.h>
+
+typedef enum : NSUInteger {
+    BadgeStyleFontTypeHelveticaNeueMedium,
+    BadgeStyleFontTypeHelveticaNeueLight,
+} BadgeStyleFontType;
+
+@interface BadgeStyle : NSObject {
+
+    UIColor *badgeTextColor;
+    UIColor *badgeInsetColor;
+    UIColor *badgeFrameColor;
+    BOOL badgeFrame;
+    BOOL badgeShining;
+    BadgeStyleFontType badgeFontType;
+
 }
 
-@property(nonatomic) NSString *badgeText;
-@property(nonatomic) BadgeStyle *badgeStyle;
-@property(nonatomic,readwrite) CGFloat badgeCornerRoundness;
-@property(nonatomic,readwrite) CGFloat badgeScaleFactor;
+@property(nonatomic) UIColor *badgeTextColor;
+@property(nonatomic) UIColor *badgeInsetColor;
+@property(nonatomic) UIColor *badgeFrameColor;
+@property(nonatomic) BadgeStyleFontType badgeFontType;
+@property(nonatomic,readwrite) BOOL badgeFrame;
+@property(nonatomic,readwrite) BOOL badgeShining;
+@property(nonatomic,readwrite) BOOL badgeShadow;
 
-+ (CustomBadge*) customBadgeWithString:(NSString *)badgeString;
-+ (CustomBadge*) customBadgeWithString:(NSString *)badgeString withScale:(CGFloat)scale;
-+ (CustomBadge*) customBadgeWithString:(NSString *)badgeString withStyle:(BadgeStyle*)style;
-+ (CustomBadge*) customBadgeWithString:(NSString *)badgeString withScale:(CGFloat)scale withStyle:(BadgeStyle*)style;
 
-- (void) autoBadgeSizeWithString:(NSString *)badgeString;
++ (BadgeStyle*) defaultStyle;
++ (BadgeStyle*) oldStyle;
++ (BadgeStyle*) freeStyleWithTextColor:(UIColor*)textColor withInsetColor:(UIColor*)insetColor withFrameColor:(UIColor*)frameColor withFrame:(BOOL)frame withShadow:(BOOL)shadow withShining:(BOOL)shining withFontType:(BadgeStyleFontType)fontType;
+
 
 @end
+

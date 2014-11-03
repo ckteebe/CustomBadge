@@ -1,7 +1,36 @@
-//
-//  CustomBadgeViewController.m
-//  CustomBadge
-//
+/*
+ 
+ ------------------------------------------------------------------------------------
+ CustomBadgeViewController.h
+ ------------------------------------------------------------------------------------
+ This is an example which shows the diversity of CustomerBadge.
+ With Version 3 comes with better separation between style and rendering.
+ BadgeStyle.m contains all style information; In CustomBadge.m happens the rendering.
+ ------------------------------------------------------------------------------------
+ 
+ The MIT License (MIT)
+ 
+ Copyright (c) 2014 Sascha Paulus
+ 
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+ 
+ The above copyright notice and this permission notice shall be included in all
+ copies or substantial portions of the Software.
+ 
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.
+ 
+ */
 
 #import "CustomBadgeViewController.h"
 #import "CustomBadge.h"
@@ -13,104 +42,83 @@
 {
     
     [super viewDidLoad];
+    
+    // An array to hold the badges
+    NSMutableArray *badges = [NSMutableArray array];
+    
+    
+    // Creates a badge with scale of 1.5
+    CustomBadge *badge1 = [CustomBadge customBadgeWithString:@"CustomBadge" withScale:1.5];
+    [badges addObject:badge1];
+    
+    // Creates a badge with pre-defined style "old" (for prior-iOS7 style)
+    CustomBadge *badge2 = [CustomBadge customBadgeWithString:@"Old iOS Style" withScale:1.5 withStyle:[BadgeStyle oldStyle]];
+    [badges addObject:badge2];
 
-	// Create simple Badge
-	//CustomBadge *customBadge1 = [CustomBadge customBadgeWithString:@"2"];
-	CustomBadge *customBadge1 = [CustomBadge customBadgeWithString:@"2" 
-												   withStringColor:[UIColor whiteColor] 
-													withInsetColor:[UIColor redColor] 
-													withBadgeFrame:YES 
-											   withBadgeFrameColor:[UIColor whiteColor] 
-														 withScale:1.0
-													   withShining:YES];		
+    // Creates a badge with free customer definitions
+    BadgeStyle *badge3Style = [BadgeStyle freeStyleWithTextColor:[UIColor whiteColor]
+                                                withInsetColor:[UIColor blueColor]
+                                                withFrameColor:nil
+                                                     withFrame:NO
+                                                    withShadow:NO
+                                                   withShining:NO
+                                                  withFontType:BadgeStyleFontTypeHelveticaNeueLight];
+    
+    CustomBadge *badge3 = [CustomBadge customBadgeWithString:@"Retina ready!" withScale:1.5 withStyle:badge3Style];
+    [badges addObject:badge3];
 
-	// Create advanced Badge
+    BadgeStyle *badge4Style = [BadgeStyle freeStyleWithTextColor:[UIColor whiteColor]
+                                                  withInsetColor:[UIColor purpleColor]
+                                                  withFrameColor:[UIColor blackColor]
+                                                       withFrame:YES
+                                                      withShadow:YES
+                                                     withShining:YES
+                                                    withFontType:BadgeStyleFontTypeHelveticaNeueLight];
+    
+    CustomBadge *badge4 = [CustomBadge customBadgeWithString:@"Highly customizable" withScale:2.0 withStyle:badge4Style];
+    [badges addObject:badge4];
+    
+    CustomBadge *badge5 = [CustomBadge customBadgeWithString:@"1"];
+    [badges addObject:badge5];
 
-	CustomBadge *customBadge2 = [CustomBadge customBadgeWithString:@"CustomBadge" 
-												   withStringColor:[UIColor blackColor] 
-													withInsetColor:[UIColor greenColor] 
-													withBadgeFrame:YES 
-											   withBadgeFrameColor:[UIColor yellowColor] 
-														 withScale:1.5
-													   withShining:YES];	
-	
-	CustomBadge *customBadge3 = [CustomBadge customBadgeWithString:@"Now Retina Ready!" 
-												  withStringColor:[UIColor whiteColor] 
-												   withInsetColor:[UIColor blueColor] 
-												   withBadgeFrame:YES 
-											   withBadgeFrameColor:[UIColor whiteColor] 
-														 withScale:1.5 
-													   withShining:YES];
+    CustomBadge *badge6 = [CustomBadge customBadgeWithString:@"2" withStyle:[BadgeStyle oldStyle]];
+    [badges addObject:badge6];
 
-	CustomBadge *customBadge4 = [CustomBadge customBadgeWithString:@"... and scalable" 
-												   withStringColor:[UIColor whiteColor] 
-													withInsetColor:[UIColor purpleColor] 
-													withBadgeFrame:YES 
-											   withBadgeFrameColor:[UIColor blackColor] 
-														 withScale:2.0 
-													   withShining:YES];
+    
+    // Creates a baddge ...
+    CustomBadge *badge7 = [CustomBadge customBadgeWithString:@"Easy to use"];
+    [badges addObject:badge7];
+    [badge7.badgeStyle setBadgeTextColor:[UIColor blackColor]];
+    [badge7.badgeStyle setBadgeInsetColor:[UIColor whiteColor]];
+    [badge7.badgeStyle setBadgeShadow:YES];
+    // ... and change it afterwards with autoBadgeSizeWithString
+    [badge7 autoBadgeSizeWithString:@"Easy to use & flexible"];
+    
+    CustomBadge *badge8 = [CustomBadge customBadgeWithString:@"Still Open & Free" withScale:1.25];
+    [badge8.badgeStyle setBadgeShadow:YES];
+    [badge8.badgeStyle setBadgeFrame:YES];
+    [badge8.badgeStyle setBadgeFrameColor:[UIColor yellowColor]];
+    [badges addObject:badge8];
 
-	CustomBadge *customBadge5 = [CustomBadge customBadgeWithString:@"... with Shining" 
-												   withStringColor:[UIColor blackColor] 
-													withInsetColor:[UIColor orangeColor] 
-													withBadgeFrame:YES 
-											   withBadgeFrameColor:[UIColor blackColor] 
-														 withScale:1.0 
-													   withShining:YES];
 
-	CustomBadge *customBadge6 = [CustomBadge customBadgeWithString:@"... without Shining" 
-												   withStringColor:[UIColor whiteColor] 
-													withInsetColor:[UIColor brownColor] 
-													withBadgeFrame:YES 
-											   withBadgeFrameColor:[UIColor blackColor] 
-														 withScale:1.0 
-													   withShining:NO];
-
-	CustomBadge *customBadge7 = [CustomBadge customBadgeWithString:@"Still Open & Free" 
-												   withStringColor:[UIColor whiteColor] 
-													withInsetColor:[UIColor blackColor] 
-													withBadgeFrame:YES 
-											   withBadgeFrameColor:[UIColor yellowColor] 
-														 withScale:1.25 
-													   withShining:YES];
-	
-	
-	// Set Position of Badge 1
-	[customBadge1 setFrame:CGRectMake(self.view.frame.size.width/2-customBadge1.frame.size.width/2+customBadge2.frame.size.width/2, 110, customBadge1.frame.size.width, customBadge1.frame.size.height)];
-	[customBadge2 setFrame:CGRectMake(self.view.frame.size.width/2-customBadge2.frame.size.width/2, 110, customBadge2.frame.size.width, customBadge2.frame.size.height)];
-	[customBadge3 setFrame:CGRectMake(self.view.frame.size.width/2-customBadge3.frame.size.width/2, 150, customBadge3.frame.size.width, customBadge3.frame.size.height)];
-	[customBadge4 setFrame:CGRectMake(self.view.frame.size.width/2-customBadge4.frame.size.width/2, 185, customBadge4.frame.size.width, customBadge4.frame.size.height)];
-	[customBadge5 setFrame:CGRectMake(self.view.frame.size.width/2-customBadge5.frame.size.width/2, 235, customBadge5.frame.size.width, customBadge5.frame.size.height)];
-	[customBadge6 setFrame:CGRectMake(self.view.frame.size.width/2-customBadge6.frame.size.width/2, 260, customBadge6.frame.size.width, customBadge6.frame.size.height)];
-	[customBadge7 setFrame:CGRectMake(self.view.frame.size.width/2-customBadge7.frame.size.width/2, 310, customBadge7.frame.size.width, customBadge7.frame.size.height)];
-	 
-	 
-	// Add Badges to View
-	[self.view addSubview:customBadge2];
-	[self.view addSubview:customBadge1];
-	[self.view addSubview:customBadge3];
-	[self.view addSubview:customBadge4];
-	[self.view addSubview:customBadge5];
-	[self.view addSubview:customBadge6];
-	[self.view addSubview:customBadge7];
-
-	// Change text afterwards
-	//[customBadge1 autoBadgeSizeWithString:@"New Text!"];
-	
-	
-	
-	// Convert Badge (based on UIView) to an UIImageView
-	/*
-	UIGraphicsBeginImageContextWithOptions((customBadge1.frame.size), FALSE, [[UIScreen mainScreen] scale]);
-	[customBadge1.layer renderInContext:UIGraphicsGetCurrentContext()];
-	UIImage *badgeAsImage = UIGraphicsGetImageFromCurrentImageContext();
-	UIGraphicsEndImageContext();
-	UIImageView *imageView = [[UIImageView alloc] initWithImage:badgeAsImage];
-	imageView.frame = CGRectMake(0, 0, imageView.frame.size.width, imageView.frame.size.height);
-	[self.view addSubview:imageView];
-	[imageView release];
-	*/
-	
+    
+    // Put all badges to the screen
+    for (int i=0; i<badges.count; i++) {
+        CustomBadge *badge = [badges objectAtIndex:i];
+        CGFloat y;
+        if(i==0) {
+            y = 110;
+        } else {
+            CustomBadge* last = (CustomBadge*)[badges objectAtIndex:i-1];
+            y = last.frame.origin.y + last.frame.size.height;
+        }
+        CGPoint point = CGPointMake(self.view.frame.size.width/2-badge.frame.size.width/2, y);
+        CGSize size = CGSizeMake(badge.frame.size.width, badge.frame.size.height);
+        CGRect rect = CGRectMake(point.x, point.y, size.width, size.height);
+        [badge setFrame:rect];
+        [self.view addSubview:badge];
+    }
+    
 }
 
 
