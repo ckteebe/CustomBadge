@@ -47,6 +47,7 @@
 
 @property(nonatomic,readwrite) BOOL badgeFrame;
 @property(nonatomic,readwrite) BOOL badgeShining;
+@property(nonatomic,readwrite) BOOL badgeShadow;
 
 @property(nonatomic,readwrite) CGFloat badgeCornerRoundness;
 @property(nonatomic,readwrite) CGFloat badgeScaleFactor;
