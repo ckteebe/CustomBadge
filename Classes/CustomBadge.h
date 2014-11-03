@@ -1,25 +1,29 @@
 /*
  CustomBadge.h
  
-*** Description: ***
- With this class you can draw a typical iOS badge indicator with a custom text on any view.
- Please use the allocator customBadgeWithString to create a new badge.
- In this version you can modfiy the color inside the badge (insetColor),
- the color of the frame (frameColor), the color of the text and you can
- tell the class if you want a frame around the badge.
+ The MIT License (MIT)
  
- *** License & Copyright ***
- Created by Sascha Paulus www.spaulus.com on 04/2011. Version 2.0
- This tiny class can be used for free in private and commercial applications.
- Please feel free to modify, extend or distribution this class. 
- If you modify it: Please send me your modified version of the class.
- Please do not sell the source code solely and keep this text in
- your copyright section. Thanks.
+ Copyright (c) 2014 Sascha Paulus
  
- If you have any questions please feel free to contact me (open@spaulus.com).
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+ 
+ The above copyright notice and this permission notice shall be included in all
+ copies or substantial portions of the Software.
+ 
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.
 
- */
-
+*/
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>

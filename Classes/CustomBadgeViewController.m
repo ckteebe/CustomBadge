@@ -11,6 +11,8 @@
 
 - (void) viewDidLoad
 {
+    
+    [super viewDidLoad];
 
 	// Create simple Badge
 	//CustomBadge *customBadge1 = [CustomBadge customBadgeWithString:@"2"];
