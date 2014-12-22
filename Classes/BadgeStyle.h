@@ -53,13 +53,13 @@ typedef enum : NSUInteger {
 
 }
 
-@property(nonatomic) UIColor *badgeTextColor;
-@property(nonatomic) UIColor *badgeInsetColor;
-@property(nonatomic) UIColor *badgeFrameColor;
+@property(nonatomic, strong) UIColor *badgeTextColor;
+@property(nonatomic, strong) UIColor *badgeInsetColor;
+@property(nonatomic, strong) UIColor *badgeFrameColor;
 @property(nonatomic) BadgeStyleFontType badgeFontType;
-@property(nonatomic,readwrite) BOOL badgeFrame;
-@property(nonatomic,readwrite) BOOL badgeShining;
-@property(nonatomic,readwrite) BOOL badgeShadow;
+@property(nonatomic) BOOL badgeFrame;
+@property(nonatomic) BOOL badgeShining;
+@property(nonatomic) BOOL badgeShadow;
 
 
 + (BadgeStyle*) defaultStyle;
