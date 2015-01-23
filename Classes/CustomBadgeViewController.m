@@ -12,6 +12,8 @@
 - (void) viewDidLoad
 {
 
+    [super viewDidLoad];//ANALZER WARNING
+    
 	// Create simple Badge
 	//CustomBadge *customBadge1 = [CustomBadge customBadgeWithString:@"2"];
 	CustomBadge *customBadge1 = [CustomBadge customBadgeWithString:@"2" 
