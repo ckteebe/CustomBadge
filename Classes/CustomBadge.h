@@ -44,10 +44,10 @@
     BadgeStyle *badgeStyle;
 }
 
-@property(nonatomic) NSString *badgeText;
-@property(nonatomic) BadgeStyle *badgeStyle;
-@property(nonatomic,readwrite) CGFloat badgeCornerRoundness;
-@property(nonatomic,readwrite) CGFloat badgeScaleFactor;
+@property(nonatomic, strong) NSString *badgeText;
+@property(nonatomic, strong) BadgeStyle *badgeStyle;
+@property(nonatomic) CGFloat badgeCornerRoundness;
+@property(nonatomic) CGFloat badgeScaleFactor;
 
 + (CustomBadge*) customBadgeWithString:(NSString *)badgeString;
 + (CustomBadge*) customBadgeWithString:(NSString *)badgeString withScale:(CGFloat)scale;
