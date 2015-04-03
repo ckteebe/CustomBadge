@@ -74,9 +74,16 @@
 - (void) autoBadgeSizeWithString:(NSString *)badgeString
 {
 	CGSize retValue;
-	CGFloat rectWidth, rectHeight;
-    NSDictionary *fontAttr = @{ NSFontAttributeName : [self fontForBadgeWithSize:12] };
-	CGSize stringSize = [badgeString sizeWithAttributes:fontAttr];
+    CGFloat rectWidth, rectHeight;
+    
+    CGSize stringSize = CGSizeZero;
+    if ([badgeString respondsToSelector:@selector(sizeWithAttributes:)]) {
+        NSDictionary *fontAttr = @{ NSFontAttributeName : [self fontForBadgeWithSize:12] };
+        stringSize = [badgeString sizeWithAttributes:fontAttr];
+    }
+    else
+        stringSize = [badgeString sizeWithFont:[UIFont boldSystemFontOfSize:12]];
+    
 	CGFloat flexSpace;
 	if ([badgeString length]>=2) {
 		flexSpace = [badgeString length];
@@ -246,10 +253,18 @@
             sizeOfFont += sizeOfFont * 0.20f;
 		}
         UIFont *textFont =  [self fontForBadgeWithSize:sizeOfFont];
-        NSDictionary *fontAttr = @{ NSFontAttributeName : textFont, NSForegroundColorAttributeName : self.badgeStyle.badgeTextColor };
-		CGSize textSize = [self.badgeText sizeWithAttributes:fontAttr];
-        CGPoint textPoint = CGPointMake((rect.size.width/2-textSize.width/2), (rect.size.height/2-textSize.height/2) - 1 );
-		[self.badgeText drawAtPoint:textPoint withAttributes:fontAttr];
+        
+        if ([self.badgeText respondsToSelector:@selector(sizeWithAttributes:)]) {
+            NSDictionary *fontAttr = @{ NSFontAttributeName : textFont, NSForegroundColorAttributeName : self.badgeStyle.badgeTextColor };
+            CGSize textSize = [self.badgeText sizeWithAttributes:fontAttr];
+            CGPoint textPoint = CGPointMake((rect.size.width/2-textSize.width/2), (rect.size.height/2-textSize.height/2) - 1 );
+            [self.badgeText drawAtPoint:textPoint withAttributes:fontAttr];
+        }
+        else {
+            CGSize textSize = [self.badgeText sizeWithFont:textFont];
+            [self.badgeText drawAtPoint:CGPointMake((rect.size.width/2-textSize.width/2), (rect.size.height/2-textSize.height/2)) withFont:textFont];
+        }
+        
 	}
 }
 
