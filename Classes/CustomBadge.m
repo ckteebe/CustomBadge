@@ -204,7 +204,10 @@
 	CGFloat lineSize = 2;
 	if(self.badgeScaleFactor>1) {
 		lineSize += self.badgeScaleFactor*0.25;
+	} else if (self.badgeScaleFactor >= 0 && self.badgeScaleFactor < 1) {
+		lineSize *= self.badgeScaleFactor;
 	}
+
 	CGContextSetLineWidth(context, lineSize);
 	CGContextSetStrokeColorWithColor(context, [self.badgeStyle.badgeFrameColor CGColor]);
 	CGContextAddArc(context, maxX-radius, minY+radius, radius, M_PI+(M_PI/2), 0, 0);
