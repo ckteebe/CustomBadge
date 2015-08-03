@@ -33,7 +33,6 @@
  */
 
 #import "CustomBadgeViewController.h"
-#import "CustomBadge.h"
 
 @implementation CustomBadgeViewController
 
@@ -118,6 +117,8 @@
         [badge setFrame:rect];
         [self.view addSubview:badge];
     }
+    
+    [_badgeViewFromXIB changeXibViewToBadgeWithString:@"9" withScale:1.0];
     
 }
 

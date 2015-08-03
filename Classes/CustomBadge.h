@@ -55,5 +55,6 @@
 + (CustomBadge*) customBadgeWithString:(NSString *)badgeString withScale:(CGFloat)scale withStyle:(BadgeStyle*)style;
 
 - (void) autoBadgeSizeWithString:(NSString *)badgeString;
+- (void) changeXibViewToBadgeWithString:(NSString*)badgeString withScale:(CGFloat)scale;
 
 @end
