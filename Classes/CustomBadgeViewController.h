@@ -34,10 +34,11 @@
 
 
 #import <UIKit/UIKit.h>
-
+#import "CustomBadge.h"
 @interface CustomBadgeViewController : UIViewController {
 
 }
+@property (weak, nonatomic) IBOutlet CustomBadge *badgeViewFromXIB;
 
 @end
 

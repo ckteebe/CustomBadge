@@ -69,6 +69,19 @@
 	return self;
 }
 
+// Use this method if you want to change UIView from Xib to BadgeView.
+- (void) changeXibViewToBadgeWithString:(NSString*)badgeString withScale:(CGFloat)scale{
+    
+    self.contentScaleFactor = [[UIScreen mainScreen] scale];
+    self.backgroundColor = [UIColor clearColor];
+    self.badgeText = badgeString;
+    self.badgeStyle = [BadgeStyle defaultStyle];
+    self.badgeCornerRoundness = 0.4;
+    self.badgeScaleFactor = scale;
+    [self autoBadgeSizeWithString:badgeString];
+    
+}
+
 
 // Use this method if you want to change the badge text after the first rendering 
 - (void) autoBadgeSizeWithString:(NSString *)badgeString
