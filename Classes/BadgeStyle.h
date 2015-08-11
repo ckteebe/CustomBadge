@@ -35,7 +35,7 @@
 
 
 
-#import <Foundation/Foundation.h>
+@import UIKit;
 
 typedef enum : NSUInteger {
     BadgeStyleFontTypeHelveticaNeueMedium,
